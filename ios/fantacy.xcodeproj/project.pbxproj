@@ -48,6 +48,8 @@
 		476DF301DF6948E98A100377 /* rubicon-icon-font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9C47C901F23047DF996DE53E /* rubicon-icon-font.ttf */; };
 		E21AF46DD89647E3B151E707 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C74F5182E42A4652A77925A4 /* SimpleLineIcons.ttf */; };
 		C602836777C44402AF130DD5 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9A42D88805F84DC8BBD223EE /* Zocial.ttf */; };
+		F16F407ED5A946B49B85E68E /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AA9146EC7156467AA7D58748 /* Montserrat-Light.ttf */; };
+		453C07C5F29447E5A10D3922 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 50A1D06340E649B1A5F5A96E /* Montserrat-SemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -309,6 +311,8 @@
 		9C47C901F23047DF996DE53E /* rubicon-icon-font.ttf */ = {isa = PBXFileReference; name = "rubicon-icon-font.ttf"; path = "../node_modules/native-base/Fonts/rubicon-icon-font.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		C74F5182E42A4652A77925A4 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../node_modules/native-base/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		9A42D88805F84DC8BBD223EE /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/native-base/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		AA9146EC7156467AA7D58748 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; name = "Montserrat-Light.ttf"; path = "../assets/fonts/Montserrat-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		50A1D06340E649B1A5F5A96E /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; name = "Montserrat-SemiBold.ttf"; path = "../assets/fonts/Montserrat-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -577,6 +581,8 @@
 				9C47C901F23047DF996DE53E /* rubicon-icon-font.ttf */,
 				C74F5182E42A4652A77925A4 /* SimpleLineIcons.ttf */,
 				9A42D88805F84DC8BBD223EE /* Zocial.ttf */,
+				AA9146EC7156467AA7D58748 /* Montserrat-Light.ttf */,
+				50A1D06340E649B1A5F5A96E /* Montserrat-SemiBold.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -984,6 +990,8 @@
 				476DF301DF6948E98A100377 /* rubicon-icon-font.ttf in Resources */,
 				E21AF46DD89647E3B151E707 /* SimpleLineIcons.ttf in Resources */,
 				C602836777C44402AF130DD5 /* Zocial.ttf in Resources */,
+				F16F407ED5A946B49B85E68E /* Montserrat-Light.ttf in Resources */,
+				453C07C5F29447E5A10D3922 /* Montserrat-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

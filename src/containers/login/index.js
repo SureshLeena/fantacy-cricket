@@ -19,7 +19,8 @@ import {
     Left, 
     Right, 
     Body,
-    StyleProvider
+    StyleProvider,
+    ImageBackground
 } from 'native-base';
 import getTheme from '../../../native-base-theme/components';
 import platform from '../../../native-base-theme/variables/platform';
@@ -54,6 +55,9 @@ export default class LoginScreen extends Component {
           <View style = {styles.formContainer}>
             <LoginForm loginButtonTapped={this.loginBtnTapped}/>
           </View>
+          <View style = {styles.forgotText}>
+              <Text style = {styles.clickTextColor}>By clicking play you agree to <Text  style = {styles.forgotTextColor}> terms and condition</Text> </Text>
+          </View>
         </Container>
       </StyleProvider>
     );
@@ -65,7 +69,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection:'column',
-    backgroundColor: AppColors.APP_THEME_COLOR,
+    backgroundColor: AppColors.APP_THEME_COLOR
   },
   logoContainer:{
     alignItems:'center',
@@ -78,8 +82,21 @@ const styles = StyleSheet.create({
     height:120
   },
   formContainer:{
-    height:220,
-    padding:20,
+    height:200
+  },
+  forgotText : {
+    alignItems:'center',
+    marginBottom: 15,
+  },
+  clickTextColor:{
+    color: 'white',
+    fontSize: 13,
+    fontFamily: 'Montserrat-Light'
+  },
+  forgotTextColor:{
+    color: 'blue',
+    fontSize: 13,
+    fontFamily: 'Montserrat-Light'
   }
 });
 

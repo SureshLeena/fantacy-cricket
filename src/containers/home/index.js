@@ -78,17 +78,17 @@ export default class HomeScreen extends Component {
     return (
       <StyleProvider style={getTheme(platform)}>
         <View style={styles.container}>
-        <Header>
+        <Header style={styles.navBar}>
           <Left>
-           
+            <Button onPress={this.onMenuButtonTapped} transparent>
+               <Icon name='ios-menu' />
+            </Button> 
           </Left>
-          <Body>
-            <Title>Home</Title>
+          <Body style={styles.singleItemRow}>
+            <Title ><Text style={styles.navBarText}>         Home</Text></Title>
           </Body>
           <Right>
-          <Button onPress={this.onMenuButtonTapped} transparent>
-               <Icon name='ios-menu' />
-            </Button>
+          
           </Right>
         </Header>
         <Content>
@@ -139,10 +139,18 @@ export default class HomeScreen extends Component {
 }
 
 const styles = StyleSheet.create({
+  navBar : {
+    backgroundColor: AppColors.NAVIGATION_BAR_COLOR,
+  },
+  navBarText: {
+    color: AppColors.WHITE_COLOR,
+    fontFamily: 'Montserrat-SemiBold',
+    fontSize:23
+  },
   container: {
     flex: 1,
     flexDirection:'column',
-    backgroundColor: AppColors.APP_BACKGROUND_COLOR,
+    backgroundColor: AppColors.APP_THEME_COLOR,
   },
   singleItemRow: {
       borderBottomWidth: 1,
@@ -190,11 +198,13 @@ singleItemColLeft: {
   },
   highlightedTextStyle: {
     fontSize:20,
-    color: '#FFF'
+    color: '#FFF',
+    fontFamily: 'Montserrat-SemiBold'
   },
   suffixTextStyle: {
     fontSize:10,
-    color: '#ccc'
+    color: '#ccc',
+    fontFamily: 'Montserrat-Light'
   }
 });
 
