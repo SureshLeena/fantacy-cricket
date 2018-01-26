@@ -97,7 +97,7 @@ const AppNavigator = StackNavigator(
 		SelectTeamScreen: {screen :SelectTeamScreen}
 	},
 	{
-		initialRouteName: "HomeScreen",
+		initialRouteName: "SplashScreen",
 		headerMode: "none",
 	}
 );
