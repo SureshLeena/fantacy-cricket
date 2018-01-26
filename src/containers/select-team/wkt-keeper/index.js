@@ -19,7 +19,9 @@ import {
     Left, 
     Right, 
     Body,
-    StyleProvider
+    StyleProvider,
+    List,
+    ListItem
 } from 'native-base';
 import getTheme from '../../../../native-base-theme/components';
 import platform from '../../../../native-base-theme/variables/platform';
@@ -33,18 +35,40 @@ const { width, height } = Dimensions.get('window');
 export default class SelectedWktKeeperScreen extends Component {
   constructor(props){
         super(props);
+        this.state = {
+          data:props.data.data
+       }
+
+       this.listItemsClicked = this.listItemsClicked.bind(this);
        
   }
   componentDidMount(){
   
     
   }
-  
+  componentWillReceiveProps(nextProps){
+    if(nextProps != this.props){
+        this.setState({data:nextProps.data.data});
+    }
+  }  
+  listItemsClicked(item){
+    if(this.props.wktKeeperTapped){
+      this.props.wktKeeperTapped(item);
+    }
+   
+    // this.props.navigation.navigate(RouterContants.BATSMAN_LIST_SCREEN_ROUTER_NAME)
+  }
   render() {
     return (
       <StyleProvider style={getTheme(platform)}>
         <Container style={styles.container}>    
-          <Text> Wicket Keeper </Text>
+           <List dataArray={this.state.data}
+              renderRow={(item) =>
+                <ListItem onPress={(e) => this.listItemsClicked(item)}>
+                  <Text>{item.wktKeeperName}</Text>
+                </ListItem>
+              }>
+            </List> 
         </Container>
       </StyleProvider>
     );

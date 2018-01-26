@@ -60,6 +60,9 @@ export default class SelectTeamScreen extends Component {
 
         this.batsmanItemTapped = this.batsmanItemTapped.bind(this);
         this.bowlerItemTapped = this.bowlerItemTapped.bind(this);
+        this.allRounderItemTapped = this.allRounderItemTapped.bind(this);
+        this.wktKeeperItemTapped = this.wktKeeperItemTapped.bind(this);
+      
   }
   componentDidMount(){
     this.composePlaceholders();
@@ -93,13 +96,13 @@ export default class SelectTeamScreen extends Component {
     }
 
     var allRounders = [];
-    for(var i=0; i<3; i++){
+    for(var i=0; i<4; i++){
       var data = {allRounderName:"all rounder "+(i+1), allRounderId:""};
       allRounders.push(data);
     }
 
     var wktKeepers = [];
-    for(var i=0; i<3; i++){
+    for(var i=0; i<1; i++){
       var data = {wktKeeperName:"wiket keeper "+(i+1), wktKeeperId:""};
       wktKeepers.push(data);
     }
@@ -116,6 +119,14 @@ export default class SelectTeamScreen extends Component {
     this.props.navigation.navigate(RouterContants.BATSMAN_LIST_SCREEN_ROUTER_NAME)
   }
   bowlerItemTapped(item){
+    // alert("item");
+    this.props.navigation.navigate(RouterContants.BATSMAN_LIST_SCREEN_ROUTER_NAME)
+  }
+  allRounderItemTapped(item){
+    // alert("item");
+    this.props.navigation.navigate(RouterContants.BATSMAN_LIST_SCREEN_ROUTER_NAME)
+  }
+  wktKeeperItemTapped(item){
     // alert("item");
     this.props.navigation.navigate(RouterContants.BATSMAN_LIST_SCREEN_ROUTER_NAME)
   }
@@ -143,10 +154,10 @@ export default class SelectTeamScreen extends Component {
               <SelectedBowler data={this.state.bowlers} bowlerTapped={this.bowlerItemTapped}/>
             </Tab>
             <Tab heading={ <TabHeading><Text>All Rounder</Text></TabHeading>}>
-              <SelectedAllRounder data={this.state.allRounders} />
+              <SelectedAllRounder data={this.state.allRounders} allRounderTapped={this.allRounderItemTapped}/>
             </Tab>
             <Tab heading={ <TabHeading><Text>Wkt Keeper</Text></TabHeading>}>
-              <SelectedWktKeeper  data={this.state.wktKeeper}/>
+              <SelectedWktKeeper  data={this.state.wktKeeper} wktKeeperTapped={this.wktKeeperItemTapped}/>
             </Tab>
         </Tabs>
         <Footer>
