@@ -78,6 +78,7 @@ import GameRulesScreen from './src/containers/game-rules';
 import TermsScreen from './src/containers/terms';
 import SelectTeamScreen from './src/containers/select-team';
 
+import BatsmanListScreen from './src/containers/select-team/batsman/list';
 
 const AppNavigator = StackNavigator(
 	{
@@ -94,10 +95,11 @@ const AppNavigator = StackNavigator(
 		ShareScreen: { screen: ShareScreen },
 		GameRulesScreen: { screen: GameRulesScreen },
 		TermsScreen: { screen: TermsScreen },
-		SelectTeamScreen: {screen :SelectTeamScreen}
+		SelectTeamScreen: {screen :SelectTeamScreen},
+		BatsmanListScreen: {screen :BatsmanListScreen}
 	},
 	{
-		initialRouteName: "SplashScreen",
+		initialRouteName: "HomeScreen",
 		headerMode: "none",
 	}
 );
