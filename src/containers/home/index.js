@@ -32,6 +32,7 @@ import * as AppColors from '../../themes/color-codes';
 import * as AppImageContants from '../../constants/app-image-constants';
 import * as RouterContants from '../../constants/router-constants';
 import { NavigationActions } from 'react-navigation';
+import { APIGET, APIPOST } from '../../helpers/api-implement';
 
 const { width, height } = Dimensions.get('window');
 
@@ -85,7 +86,7 @@ export default class HomeScreen extends Component {
             </Button> 
           </Left>
           <Body style={styles.singleItemRow}>
-            <Title ><Text style={styles.navBarText}>         Home</Text></Title>
+            <Title ><Text style={styles.navBarText}>Home</Text></Title>
           </Body>
           <Right>
           
