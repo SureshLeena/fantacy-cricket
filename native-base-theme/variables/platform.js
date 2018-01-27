@@ -118,20 +118,20 @@ export default {
 
   // Footer
   footerHeight: isIphoneX ? 89 : 55,
-  footerDefaultBg: platform === "ios" ? "#F8F8F8" : "#4179F7",
+  footerDefaultBg: platform === "ios" ? "#081c2e" : "#081c2e",
   footerPaddingBottom: isIphoneX ? 34 : 0,
 
   // FooterTab
-  tabBarTextColor: "#2874F0",
+  tabBarTextColor: "#FFF",
   tabBarTextSize: platform === "ios" ? 14 : 11,
   activeTab: "#fff",
-  sTabBarActiveTextColor: "#007aff",
+  sTabBarActiveTextColor: "#FFF",
   tabBarActiveTextColor: "#2874F0",
   tabActiveBgColor: "#cde1f9",
 
   // Header
-  toolbarBtnColor: "#007aff",
-  toolbarDefaultBg: platform === "ios" ? "#F8F8F8" : "#3F51B5",
+  toolbarBtnColor: "#fff",
+  toolbarDefaultBg: platform === "ios" ? "#081c2e" : "#081c2e",
   toolbarHeight: platform === "ios" ? (isIphoneX ? 88 : 64) : 56,
   toolbarSearchIconSize: platform === "ios" ? 20 : 23,
   toolbarInputColor: platform === "ios" ? "#CECDD2" : "#fff",
@@ -139,7 +139,7 @@ export default {
   searchBarInputHeight: platform === "ios" ? 30 : 50,
   toolbarBtnTextColor: "#000",
   toolbarDefaultBorder: "#a7a6ab",
-  iosStatusbar: platform === "ios" ? "dark-content" : "light-content",
+  iosStatusbar: platform === "ios" ? "light-content" : "light-content",
   get statusBarColor() {
     return color(this.toolbarDefaultBg)
       .darken(0.2)
@@ -227,11 +227,11 @@ export default {
   },
 
   // Title
-  titleFontfamily: platform === "ios" ? "System" : "Roboto_medium",
+  titleFontfamily: platform === "ios" ? "Montserrat-SemiBold" : "Montserrat-SemiBold",
   titleFontSize: platform === "ios" ? 17 : 19,
   subTitleFontSize: platform === "ios" ? 12 : 14,
-  subtitleColor: platform === "ios" ? "#8e8e93" : "#FFF",
-  titleFontColor: platform === "ios" ? "#000" : "#FFF",
+  subtitleColor: platform === "ios" ? "#FFF" : "#FFF",
+  titleFontColor: platform === "ios" ? "#FFF" : "#FFF",
 
   // Other
   borderRadiusBase: platform === "ios" ? 5 : 2,

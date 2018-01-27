@@ -36,14 +36,17 @@ const { width, height } = Dimensions.get('window');
 export default class HomeScreen extends Component {
   constructor(props){
         super(props);
-        this.onMenuButtonTapped = this.onMenuButtonTapped.bind(this);
+        this.onBackButtonTapped = this.onBackButtonTapped.bind(this);
   }
   componentDidMount(){
   
     
   }
-  onMenuButtonTapped(){
-    this.props.navigation.navigate(RouterContants.MENU_SCREEN_ROUTER_NAME)
+  onBackButtonTapped(){
+    this.props.navigation.goBack()
+  }
+  onBackButtonTapped(){
+    this.props.navigation.goBack()
   }
   render() {
     return (
@@ -51,8 +54,8 @@ export default class HomeScreen extends Component {
         <Container>
         <Header>
           <Left>
-            <Button onPress={this.onMenuButtonTapped} transparent>
-               <Icon name='ios-menu' />
+            <Button onPress={this.onBackButtonTapped} transparent>
+               <Icon name='arrow-back' />
             </Button>
           </Left>
           <Body>

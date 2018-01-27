@@ -35,6 +35,7 @@ import { NavigationActions } from 'react-navigation';
 
 const { width, height } = Dimensions.get('window');
 
+
 export default class HomeScreen extends Component {
   constructor(props){
         super(props);
@@ -78,6 +79,8 @@ export default class HomeScreen extends Component {
     return (
       <StyleProvider style={getTheme(platform)}>
         <View style={styles.container}>
+        <Image source={AppImageContants.BLUE_PATTERN_BACKGROUND} style={styles.backgroundImage} resizeMode="repeat"/>
+        <View style={styles.content}>
         <Header style={styles.navBar}>
           <Left>
             <Button onPress={this.onMenuButtonTapped} transparent>
@@ -85,7 +88,7 @@ export default class HomeScreen extends Component {
             </Button> 
           </Left>
           <Body style={styles.singleItemRow}>
-            <Title ><Text style={styles.navBarText}>         Home</Text></Title>
+            <Title >Home</Title>
           </Body>
           <Right>
           
@@ -122,13 +125,14 @@ export default class HomeScreen extends Component {
               <Icon name="apps" />
             </Button>
             <Button onPress={this.onSelectPlayerTapped}>
-              <Icon name="camera" />
+               <Image source={AppImageContants.ADD_ICON} style={styles.addIconStyle}/>
             </Button>
             <Button onPress={this.onLeaderBoardTapped}>
               <Icon name="person" />
             </Button>
           </FooterTab>
         </Footer>
+        </View>
         </View>
       
         
@@ -139,18 +143,31 @@ export default class HomeScreen extends Component {
 }
 
 const styles = StyleSheet.create({
-  navBar : {
-    backgroundColor: AppColors.NAVIGATION_BAR_COLOR,
-  },
-  navBarText: {
-    color: AppColors.WHITE_COLOR,
-    fontFamily: 'Montserrat-SemiBold',
-    fontSize:23
-  },
+  // navBar : {
+  //   backgroundColor: AppColors.NAVIGATION_BAR_COLOR,
+  // },
+  // navBarText: {
+  //   color: AppColors.WHITE_COLOR,
+  //   fontFamily: 'Montserrat-SemiBold',
+  //   fontSize:17
+  // },
   container: {
     flex: 1,
+  },
+  content: {
+    top:0,
+    bottom:0,
+    width:width,
+    height:height,
     flexDirection:'column',
-    backgroundColor: AppColors.APP_THEME_COLOR,
+    backgroundColor: "transparent",
+    position:"absolute"
+  },
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'repeat', // or 'stretch'
+    justifyContent: 'center',
+    width:width
   },
   singleItemRow: {
       borderBottomWidth: 1,
@@ -205,6 +222,10 @@ singleItemColLeft: {
     fontSize:10,
     color: '#ccc',
     fontFamily: 'Montserrat-Light'
+  },
+  addIconStyle:{
+    height:60,
+    width:60
   }
 });
 

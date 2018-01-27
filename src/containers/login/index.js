@@ -48,7 +48,10 @@ export default class LoginScreen extends Component {
   render() {
     return (
       <StyleProvider style={getTheme(platform)}>
-        <Container style={styles.container}>
+        <View style={ styles.container }>
+        <Image source={AppImageContants.CRICKET_BACKGROUND} style={styles.backgroundImage} />
+        <View style={styles.content}>
+          
           <View style = {styles.logoContainer}>
              <Image style={styles.logoImage} source={AppImageContants.APP_LOGO} />
           </View>
@@ -58,7 +61,8 @@ export default class LoginScreen extends Component {
           <View style = {styles.forgotText}>
               <Text style = {styles.clickTextColor}>By clicking play you agree to <Text  style = {styles.forgotTextColor}> terms and condition</Text> </Text>
           </View>
-        </Container>
+        </View>
+        </View>
       </StyleProvider>
     );
   }
@@ -68,8 +72,21 @@ export default class LoginScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  content: {
+    top:0,
+    bottom:0,
+    width:width,
+    height:height,
     flexDirection:'column',
-    backgroundColor: AppColors.APP_THEME_COLOR
+    backgroundColor: "transparent",
+    position:"absolute"
+  },
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'cover', // or 'stretch'
+    justifyContent: 'center',
+    width:width
   },
   logoContainer:{
     alignItems:'center',

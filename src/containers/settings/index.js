@@ -33,10 +33,14 @@ const { width, height } = Dimensions.get('window');
 export default class SettingsScreen extends Component {
   constructor(props){
         super(props);
+        this.onBackButtonTapped = this.onBackButtonTapped.bind(this);
   }
   componentDidMount(){
   
     
+  }
+  onBackButtonTapped(){
+    this.props.navigation.goBack()
   }
   render() {
     return (
@@ -45,7 +49,7 @@ export default class SettingsScreen extends Component {
         <Header>
           <Left>
             <Button onPress={this.onMenuButtonTapped} transparent>
-               <Icon name='ios-menu' />
+               <Icon name='arrow-back' />
             </Button>
           </Left>
           <Body>

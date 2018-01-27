@@ -40,7 +40,7 @@ import SelectedBatsman from './batsman';
 import SelectedAllRounder from './all-rounder';
 import SelectedWktKeeper from './wkt-keeper';
 import SelectedBowler from '../select-team/bowler';
-
+import TeamPartitionScreen from './partition-team';
 import BatsmanListScreen from './batsman/list';
 
 export default class SelectTeamScreen extends Component {
@@ -70,8 +70,8 @@ export default class SelectTeamScreen extends Component {
   onBackButtonTapped(){
     this.props.navigation.goBack()
   }
-  onFormationbuttonTapped(){
-
+  onFormationbuttonTapped(){  
+    this.props.navigation.navigate(RouterContants.PARTITION_TEAM_SCREEN_ROUTER_NAME)
   }
   onSaveTapped(){
 
@@ -163,13 +163,13 @@ export default class SelectTeamScreen extends Component {
         <Footer>
           <FooterTab>
             <Button onPress={this.onFormationbuttonTapped}>
-              <Icon name="apps" />
+              <Text>Compose</Text>
             </Button>
             <Button onPress={this.onSaveTapped}>
-              <Icon name="camera" />
+              <Image source={AppImageContants.TICK_ICON} style={styles.addIconStyle}/>
             </Button>
             <Button onPress={this.onBalanceTapped}>
-              <Icon name="person" />
+              <Text>Balance 100000</Text>
             </Button>
           </FooterTab>
           </Footer>
@@ -186,6 +186,10 @@ const styles = StyleSheet.create({
     flexDirection:'column',
     backgroundColor: '#FFFFFF',
     justifyContent: 'center',
+  },
+  addIconStyle:{
+    height:60,
+    width:60
   }
 });
 

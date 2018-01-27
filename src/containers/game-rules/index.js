@@ -33,10 +33,14 @@ const { width, height } = Dimensions.get('window');
 export default class GameRulesScreen extends Component {
   constructor(props){
         super(props);
+        this.onBackButtonTapped = this.onBackButtonTapped.bind(this);
   }
   componentDidMount(){
   
     
+  }
+  onBackButtonTapped(){
+    this.props.navigation.goBack()
   }
   render() {
     return (
@@ -44,8 +48,8 @@ export default class GameRulesScreen extends Component {
         <Container>    
         <Header>
           <Left>
-            <Button onPress={this.onMenuButtonTapped} transparent>
-               <Icon name='ios-menu' />
+            <Button onPress={this.onBackButtonTapped} transparent>
+               <Icon name='arrow-back' />
             </Button>
           </Left>
           <Body>

@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection:'column',
-    backgroundColor: AppColors.APP_THEME_COLOR,
+    backgroundColor: "transparent",
     marginLeft: -10
   },
   FormItemStyle:{

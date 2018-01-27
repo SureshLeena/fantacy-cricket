@@ -130,15 +130,15 @@ export default {
   tabActiveBgColor: "#3F51B5",
 
   // Header
-  toolbarBtnColor: "#fff",
-  toolbarDefaultBg: platform === "ios" ? "#F8F8F8" : "#3F51B5",
+  toolbarBtnColor: "#081c2e",
+  toolbarDefaultBg: platform === "ios" ? "#081c2e" : "#081c2e",
   toolbarHeight: platform === "ios" ? (isIphoneX ? 88 : 64) : 56,
   toolbarSearchIconSize: platform === "ios" ? 20 : 23,
-  toolbarInputColor: "#fff",
+  toolbarInputColor: "#081c2e",
   searchBarHeight: platform === "ios" ? 30 : 40,
   searchBarInputHeight: platform === "ios" ? 30 : 50,
   toolbarBtnTextColor: "#fff",
-  toolbarDefaultBorder: "#3F51B5",
+  toolbarDefaultBorder: "#081c2e",
   iosStatusbar: "light-content",
   get statusBarColor() {
     return color(this.toolbarDefaultBg)
