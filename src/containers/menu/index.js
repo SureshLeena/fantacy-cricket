@@ -158,7 +158,7 @@ export default class MenuScreen extends Component {
       <StyleProvider style={getTheme(platform)}>
      
       <View style={styles.container}>
-        <Image source={AppImageContants.BLUE_PATTERN_BACKGROUND} style={styles.backgroundImage} resizeMode="repeat"/>
+        <Image source={AppImageContants.BLUE_PATTERN_BACKGROUND}  />
   
         <Container style={styles.content}>    
           <Header trasparent>
@@ -202,7 +202,7 @@ const styles = StyleSheet.create({
   },
   backgroundImage: {
     flex: 1,
-    resizeMode: 'repeat', // or 'stretch'
+    resizeMode: 'stretch', // or 'stretch'
     justifyContent: 'center',
     width:width
   },

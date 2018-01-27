@@ -3746,6 +3746,10 @@ react-dom@^16.2.0:
     object-assign "^4.1.1"
     prop-types "^15.6.0"
 
+react-native-bgimage@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/react-native-bgimage/-/react-native-bgimage-1.4.0.tgz#3ece076667f2723a6cab30d6d55bd1dec90ad558"
+
 react-native-calendars@^1.16.1:
   version "1.16.1"
   resolved "https://registry.yarnpkg.com/react-native-calendars/-/react-native-calendars-1.16.1.tgz#b1729e329996a1cd11e43479c7612a213712ee4b"
@@ -3805,6 +3809,16 @@ react-native-keyboard-aware-scroll-view@0.4.2:
   dependencies:
     prop-types "^15.6.0"
     react-native-iphone-x-helper "^1.0.1"
+
+react-native-keyboard-spacer@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/react-native-keyboard-spacer/-/react-native-keyboard-spacer-0.4.1.tgz#46f18a320432098a25ea9fa89f5143dd254d332d"
+
+react-native-modal-wrapper@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/react-native-modal-wrapper/-/react-native-modal-wrapper-3.1.0.tgz#707811c7095a6536d2f47f836afd0749c455c788"
+  dependencies:
+    react-native-keyboard-spacer "^0.4.1"
 
 react-native-tab-view@^0.0.74:
   version "0.0.74"

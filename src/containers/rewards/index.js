@@ -66,7 +66,7 @@ export default class HomeScreen extends Component {
     return (
       <StyleProvider style={getTheme(platform)}>
             <View style={styles.container}>
-            <Image source={AppImageContants.BLUE_PATTERN_BACKGROUND} style={styles.backgroundImage} resizeMode="repeat"/>
+            <Image source={AppImageContants.BLUE_PATTERN_BACKGROUND} style={styles.backgroundImage} />
     
             <Container style={styles.content}>     
                 <Header>
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
   },
   backgroundImage: {
     flex: 1,
-    resizeMode: 'repeat', // or 'stretch'
+    resizeMode: 'stretch', // or 'stretch'
     justifyContent: 'center',
     width:width
   }, 

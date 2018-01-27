@@ -36,16 +36,22 @@ import { APIGET, APIPOST } from '../../helpers/api-implement';
 
 const { width, height } = Dimensions.get('window');
 
+import ModalWrapper from 'react-native-modal-wrapper';
+import RepeatImage from '../../components/repeat-image';
+// import BgImage from 'react-native-bgimage';
 
 export default class HomeScreen extends Component {
   constructor(props){
         super(props);
+        this.state = {
+            showSeries:false
+        }
         this.onMenuButtonTapped = this.onMenuButtonTapped.bind(this);
         this.loadGroupsList = this.loadGroupsList.bind(this);
         this.onSchedulebuttonTapped = this.onSchedulebuttonTapped.bind(this);
         this.onSelectPlayerTapped = this.onSelectPlayerTapped.bind(this);
         this.onLeaderBoardTapped = this.onLeaderBoardTapped.bind(this);
-       
+       this.handleMenuPress = this.handleMenuPress.bind(this);
   }
   componentDidMount(){
   
@@ -76,76 +82,97 @@ export default class HomeScreen extends Component {
       }
       return groups;
   }
+  handleMenuPress(){
+    this.setState({showSeries:!this.state.showSeries});
+  }
+  onClosed(){
+
+  }
+  onCancel(){
+
+  }
   render() {
     return (
       <StyleProvider style={getTheme(platform)}>
         <View style={styles.container}>
-        <Image source={AppImageContants.BLUE_PATTERN_BACKGROUND} style={styles.backgroundImage} resizeMode="repeat"/>
-        <View style={styles.content}>
-        <Header style={styles.navBar}>
-          <Left>
-            <Button onPress={this.onMenuButtonTapped} transparent>
-               <Icon name='ios-menu' />
-            </Button> 
-          </Left>
-          <Body style={styles.singleItemRow}>  
-            <TouchableOpacity onPress={this.handleMenuPress} style={{ flexDirection:'row',alignSelf:'center',backgroundColor:'transparent',paddingTop:15}}>
-                <Title >SERIES</Title>
-                <Icon
-                  name="md-arrow-dropdown"
-                  size={8}
-                  ref="menu"
-                  style={{marginLeft:10, marginTop:-5}}
-                />
-            </TouchableOpacity>
-          </Body>
-          <Right>
-          
-          </Right>
-        </Header>
-        <Content>
-        <View>
-              <View  style={styles.singleItemRow}> 
-                <Text style={styles.highlightedTextStyle}>January 26</Text> 
-              </View>
-              <View  style={styles.doubleItemRow}>
-                <View style={styles.doubleItemColLeft}>
-                    <Text style={styles.highlightedTextStyle}>100 DASH</Text> 
-                    <Text style={styles.suffixTextStyle}>Balance</Text> 
+        {/* <BgImage drawable="testbg" style={{height:64}}>
+            <Text style={{textAlign: 'center'}}>Hello!</Text>
+        </BgImage> */}
+          <Image source={AppImageContants.BLUE_PATTERN_BACKGROUND} style={styles.backgroundImage}/>
+            <Container style={styles.content}>
+                <Header style={styles.navBar}>
+                <Left>
+                    <Button onPress={this.onMenuButtonTapped} transparent>
+                    <Icon name='md-apps' />
+                    </Button> 
+                </Left>
+                <Body style={styles.singleItemRow}>  
+                    <TouchableOpacity onPress={this.handleMenuPress} style={{ flexDirection:'row',alignSelf:'center',backgroundColor:'transparent',paddingTop:15}}>
+                        <Title >SERIES</Title>
+                        <Icon
+                        name="md-arrow-dropdown"
+                        size={8}
+                        ref="menu"
+                        style={{marginLeft:10, marginTop:-5}}
+                        />
+                    </TouchableOpacity>
+                </Body>
+                <Right>
+                
+                </Right>
+                </Header>
+                <Content>
+                <View>
+                    <View  style={styles.singleItemRow}> 
+                        <Text style={styles.highlightedTextStyle}>January 26</Text> 
+                    </View>
+                    <View  style={styles.doubleItemRow}>
+                        <View style={styles.doubleItemColLeft}>
+                            <Text style={styles.highlightedTextStyle}>100 DASH</Text> 
+                            <Text style={styles.suffixTextStyle}>Balance</Text> 
+                        </View>
+                        <View  style={styles.doubleItemCol}>
+                            <Text style={styles.highlightedTextStyle}>Rs.100000</Text> 
+                            <Text style={styles.suffixTextStyle}>INR Balance</Text> 
+                        </View>
+                    </View>
+                    <View  style={styles.singleItemRowWithTwoElements}>
+                        <View  style={styles.singleItemColLeft}>
+                            <Text style={styles.highlightedTextStyle}>Overall Rank</Text> 
+                            <Text style={styles.suffixTextStyle}>100000 members</Text> 
+                        </View> 
+                        <Text style={styles.highlightedTextStyle}>10002</Text> 
+                    </View> 
+                    {this.loadGroupsList()}    
                 </View>
-                <View  style={styles.doubleItemCol}>
-                    <Text style={styles.highlightedTextStyle}>Rs.100000</Text> 
-                    <Text style={styles.suffixTextStyle}>INR Balance</Text> 
-                </View>
-              </View>
-              <View  style={styles.singleItemRowWithTwoElements}>
-                  <View  style={styles.singleItemColLeft}>
-                    <Text style={styles.highlightedTextStyle}>Overall Rank</Text> 
-                    <Text style={styles.suffixTextStyle}>100000 members</Text> 
-                  </View> 
-                  <Text style={styles.highlightedTextStyle}>10002</Text> 
-              </View> 
-              {this.loadGroupsList()}    
-          </View>
-          </Content>
-          <Footer>
-          <FooterTab>
-            <Button onPress={this.onSchedulebuttonTapped}>
-              <Icon name="ios-calendar-outline" />
-            </Button>
-            <Button onPress={this.onSelectPlayerTapped}>
-                {/* <Icon name='md-add-circle' fontSize='256' size={256} style={styles.addIconStyle}/> */}
-               <Image source={AppImageContants.ADD_ICON} style={styles.addIconStyle} tintColor={"red"}/>
-            </Button>
-            <Button onPress={this.onLeaderBoardTapped}>
-              <Icon name="person" />
-            </Button>
-          </FooterTab>
-        </Footer>
+                </Content>
+                <Footer>
+                <FooterTab>
+                    <Button onPress={this.onSchedulebuttonTapped}>
+                    <Icon name="ios-calendar-outline" />
+                    </Button>
+                    <Button onPress={this.onSelectPlayerTapped}>
+                    <Image source={AppImageContants.ADD_ICON} style={styles.addIconStyle} tintColor={"white"}/>
+                    </Button>
+                    <Button onPress={this.onLeaderBoardTapped}>
+                    <Icon name="ios-list-box-outline" />
+                    </Button>
+                </FooterTab>
+                </Footer>
+            </Container>
+
+        {/* <ModalWrapper
+            containerStyle={{flexDirection: 'row', alignItems: 'flex-end'}}
+            style={{ flex: 1, width: width, height: 180}}
+            onRequestClose={this.onClosed}
+            visible={this.state.showSeries}>
+            <View style={styles.container}>
+                <TouchableOpacity onPress={this.handleMenuPress} style={{ flexDirection:'row',alignSelf:'center',backgroundColor:'transparent',paddingTop:15}}>
+                    <Title >CLOSE</Title>
+                </TouchableOpacity>
+            </View>
+        </ModalWrapper> */}
         </View>
-        </View>
-      
-        
       </StyleProvider>
     );
   }
@@ -163,6 +190,7 @@ const styles = StyleSheet.create({
   // },
   container: {
     flex: 1,
+    flexDirection:'column',
   },
   content: {
     top:0,
@@ -175,7 +203,7 @@ const styles = StyleSheet.create({
   },
   backgroundImage: {
     flex: 1,
-    resizeMode: 'repeat', // or 'stretch'
+    resizeMode: 'stretch', // or 'stretch'
     justifyContent: 'center',
     width:width
   },
