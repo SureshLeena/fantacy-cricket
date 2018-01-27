@@ -45,9 +45,7 @@ export default class HomeScreen extends Component {
   onBackButtonTapped(){
     this.props.navigation.goBack()
   }
-  onBackButtonTapped(){
-    this.props.navigation.goBack()
-  }
+
   render() {
     return (
       <StyleProvider style={getTheme(platform)}>

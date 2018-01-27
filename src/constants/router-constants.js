@@ -9,6 +9,7 @@ export const GROUPS_SCREEN_ROUTER_NAME = 'GroupsScreen';
 export const LEADERBOARD_SCREEN_ROUTER_NAME = 'LeaderBoardScreen';
 export const WALLET_SCREEN_ROUTER_NAME = 'WalletScreen';
 export const REWARD_SCREEN_ROUTER_NAME = 'RewardScreen';
+export const SETTINGS_SCREEN_ROUTER_NAME = 'SettingScreen';
 export const SHARE_SCREEN_ROUTER_NAME = 'ShareScreen';
 export const GAME_RULES_SCREEN_ROUTER_NAME = 'GameRulesScreen';
 export const TERMS_SCREEN_ROUTER_NAME = 'TermsScreen';

@@ -31,7 +31,8 @@ import * as AppColors from '../../themes/color-codes';
 import * as AppImageContants from '../../constants/app-image-constants';
 import * as RouterContants from '../../constants/router-constants';
 import { NavigationActions } from 'react-navigation';
-import GridView from 'react-native-super-grid';
+// import GridView from 'react-native-super-grid';
+import GridView from 'react-native-flex-grid-view'
 const { width, height } = Dimensions.get('window');
 
 export default class MenuScreen extends Component {
@@ -76,6 +77,10 @@ export default class MenuScreen extends Component {
         this.props.navigation.navigate(RouterContants.REWARD_SCREEN_ROUTER_NAME)
         break;
       }
+      case "Settings":{
+        this.props.navigation.navigate(RouterContants.SETTINGS_SCREEN_ROUTER_NAME)
+        break;
+      }
       case "Share & Earn":{
         this.props.navigation.navigate(RouterContants.SHARE_SCREEN_ROUTER_NAME)
         break;
@@ -111,20 +116,38 @@ export default class MenuScreen extends Component {
     //             </Col>
     //           </Row>);
     //  }
-    gridDOM.push(<GridView
-        itemDimension={120}
-        items={this.state.items}
-        style={styles.gridView}
-        key={"grid"}
-        renderItem={item => (
-          <View style={[styles.itemContainer]} key={item}>
-            <TouchableOpacity onPress={(e)=>this.tappedGridItem(item)} activeOpacity={0.8} style={styles.buttonStyle} ref={item}>
-                  <Text style={styles.itemName} key={item}>{item}</Text>
-             </TouchableOpacity>  
-          </View>
-        )}
-      />);
-     return gridDOM;
+    // gridDOM.push(<GridView
+    //     itemDimension={120}
+    //     items={this.state.items}
+    //     style={styles.gridView}
+    //     key={"grid"}
+    //     renderItem={item => (
+          // <View style={[styles.itemContainer]} key={item}>
+          //   <TouchableOpacity onPress={(e)=>this.tappedGridItem(item)} activeOpacity={0.8} style={styles.buttonStyle} ref={item}>
+          //         <Text style={styles.itemName} key={item}>{item}</Text>
+          //    </TouchableOpacity>  
+          // </View>
+    //     )}
+    //   />);
+
+    gridDOM.push( <GridView
+      data={this.state.items}
+      span={2}
+      border={1}
+      borderColor="#ccc"
+      spacing={0}
+      square
+      // flat
+      // style={styles.gridView}
+      key={"grid"}
+      render={item => 
+        <View style={[styles.itemContainer]} key={item}>
+        <TouchableOpacity onPress={(e)=>this.tappedGridItem(item)} activeOpacity={0.8} style={styles.buttonStyle} ref={item}>
+              <Text style={styles.itemName} key={item}>{item}</Text>
+         </TouchableOpacity>  
+      </View>}
+    />);
+        return gridDOM;
   }
   onCloseMenuButtonTapped(){
     this.props.navigation.goBack()
@@ -133,7 +156,11 @@ export default class MenuScreen extends Component {
 
     return (
       <StyleProvider style={getTheme(platform)}>
-        <Container style={styles.container}>    
+     
+      <View style={styles.container}>
+        <Image source={AppImageContants.BLUE_PATTERN_BACKGROUND} style={styles.backgroundImage} resizeMode="repeat"/>
+  
+        <Container style={styles.content}>    
           <Header trasparent>
             <Left>
               <Button onPress={this.onCloseMenuButtonTapped} transparent>
@@ -149,10 +176,11 @@ export default class MenuScreen extends Component {
           <Grid>
               {this.loadGridItems()}
           </Grid>
-          <View style={styles.verticleLine}>
+          {/* <View style={styles.verticleLine}>
 
-          </View>
+          </View> */}
         </Container>
+        </View>
       </StyleProvider>
     );
   }
@@ -162,8 +190,21 @@ export default class MenuScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  content: {
+    top:0,
+    bottom:0,
+    width:width,
+    height:height,
     flexDirection:'column',
-    backgroundColor: AppColors.APP_BACKGROUND_COLOR
+    backgroundColor: "transparent",
+    position:"absolute"
+  },
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'repeat', // or 'stretch'
+    justifyContent: 'center',
+    width:width
   },
   gridItem: {
       borderBottomWidth: 1,
@@ -194,20 +235,22 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   itemContainer: {
-    justifyContent: 'flex-end',
+    flex: 1,
+    // justifyContent: 'flex-end',
     borderRadius: 0,
     padding: 0,
-    height: 100,
+    // height: 100,
     alignItems:'center',
     justifyContent: 'center',
-    borderBottomWidth: 1,
-    borderBottomColor: AppColors.WHITE_COLOR,
+    // borderBottomWidth: 1,
+    // borderBottomColor: AppColors.WHITE_COLOR,
   },
   itemName: {
-    fontSize: 16,
+    // fontSize: 16,
     color: '#fff',
-    fontWeight: '600',
-    
+    // fontWeight: '600',
+    fontFamily: 'Montserrat-SemiBold',
+    fontSize:17
   },
 
 });

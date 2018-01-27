@@ -73,6 +73,7 @@ import GroupsScreen from './src/containers/groups';
 import LeaderBoardScreen from './src/containers/leaderboard';
 import WalletScreen from './src/containers/wallet';
 import RewardScreen from './src/containers/rewards';
+import SettingScreen from './src/containers/settings';
 import ShareScreen from './src/containers/share';
 import GameRulesScreen from './src/containers/game-rules';
 import TermsScreen from './src/containers/terms';
@@ -92,6 +93,7 @@ const AppNavigator = StackNavigator(
 		LeaderBoardScreen: { screen: LeaderBoardScreen },
 		WalletScreen: { screen: WalletScreen },
 		RewardScreen: { screen: RewardScreen },
+		SettingScreen: {screen: SettingScreen},
 		ShareScreen: { screen: ShareScreen },
 		GameRulesScreen: { screen: GameRulesScreen },
 		TermsScreen: { screen: TermsScreen },
@@ -100,7 +102,7 @@ const AppNavigator = StackNavigator(
 		TeamPartitionScreen: {screen:TeamPartitionScreen}
 	},
 	{
-		initialRouteName: "SplashScreen",
+		initialRouteName: "GroupsScreen",
 		headerMode: "none",
 	}
 );

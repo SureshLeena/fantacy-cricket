@@ -149,8 +149,8 @@ const styles = StyleSheet.create({
   // },
   // navBarText: {
   //   color: AppColors.WHITE_COLOR,
-  //   fontFamily: 'Montserrat-SemiBold',
-  //   fontSize:17
+    // fontFamily: 'Montserrat-SemiBold',
+    // fontSize:17
   // },
   container: {
     flex: 1,

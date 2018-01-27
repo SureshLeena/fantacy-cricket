@@ -8,19 +8,8 @@ import {
   Keyboard,
   Image
 } from 'react-native';
-import { 
-    Container, 
-    Header, 
-    Title, 
-    Content, 
-    Button, 
-    Icon, 
-    Text, 
-    Left, 
-    Right, 
-    Body,
-    StyleProvider
-} from 'native-base';
+import { StyleProvider, Container, Header, Content, Form, Item, Input, Label, Button, Text } from 'native-base';
+
 import getTheme from '../../../native-base-theme/components';
 import platform from '../../../native-base-theme/variables/platform';
 import * as AppColors from '../../themes/color-codes';
@@ -30,34 +19,20 @@ import { NavigationActions } from 'react-navigation';
 
 const { width, height } = Dimensions.get('window');
 
-export default class SettingsScreen extends Component {
+export default class GroupCard extends Component {
   constructor(props){
         super(props);
-        this.onBackButtonTapped = this.onBackButtonTapped.bind(this);
+      
   }
   componentDidMount(){
-  
     
-  }
-  onBackButtonTapped(){
-    this.props.navigation.goBack()
   }
   render() {
     return (
       <StyleProvider style={getTheme(platform)}>
-        <Container>    
-        <Header>
-          <Left>
-            <Button onPress={this.onBackButtonTapped} transparent>
-               <Icon name='arrow-back' />
-            </Button>
-          </Left>
-          <Body>
-            <Title>Settings</Title>
-          </Body>
-          <Right>
-          </Right>
-        </Header>  
+        <Container style={styles.container}>
+           <Text style={styles.groupNameText}>Group 1</Text>
+           <Text style={styles.groupMembersText}>1000 members</Text>
         </Container>
       </StyleProvider>
     );
@@ -69,8 +44,19 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection:'column',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: "transparent",
     justifyContent: 'center',
-  }
+    alignItems:'center'
+  },
+  groupNameText: {
+    color: '#fff',
+    fontFamily: 'Montserrat-SemiBold',
+    fontSize:20
+  },
+  groupMembersText: {
+    color: '#ddd',
+    fontFamily: 'Montserrat-Light',
+    fontSize:12
+  },
 });
 
