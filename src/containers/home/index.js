@@ -88,8 +88,16 @@ export default class HomeScreen extends Component {
                <Icon name='ios-menu' />
             </Button> 
           </Left>
-          <Body style={styles.singleItemRow}>
-            <Title >HOME</Title>
+          <Body style={styles.singleItemRow}>  
+            <TouchableOpacity onPress={this.handleMenuPress} style={{ flexDirection:'row',alignSelf:'center',backgroundColor:'transparent',paddingTop:15}}>
+                <Title >SERIES</Title>
+                <Icon
+                  name="md-arrow-dropdown"
+                  size={8}
+                  ref="menu"
+                  style={{marginLeft:10, marginTop:-5}}
+                />
+            </TouchableOpacity>
           </Body>
           <Right>
           
@@ -123,10 +131,11 @@ export default class HomeScreen extends Component {
           <Footer>
           <FooterTab>
             <Button onPress={this.onSchedulebuttonTapped}>
-              <Icon name="apps" />
+              <Icon name="ios-calendar-outline" />
             </Button>
             <Button onPress={this.onSelectPlayerTapped}>
-               <Image source={AppImageContants.ADD_ICON} style={styles.addIconStyle}/>
+                {/* <Icon name='md-add-circle' fontSize='256' size={256} style={styles.addIconStyle}/> */}
+               <Image source={AppImageContants.ADD_ICON} style={styles.addIconStyle} tintColor={"red"}/>
             </Button>
             <Button onPress={this.onLeaderBoardTapped}>
               <Icon name="person" />
@@ -171,6 +180,7 @@ const styles = StyleSheet.create({
     width:width
   },
   singleItemRow: {
+     
       borderBottomWidth: 1,
       borderBottomColor: AppColors.LINE_COLOR,
       alignItems:'center',
