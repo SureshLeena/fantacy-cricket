@@ -45,21 +45,37 @@ export default class ShareScreen extends Component {
   render() {
     return (
       <StyleProvider style={getTheme(platform)}>
-        <Container>    
-        <Header>
-          <Left>
-            <Button onPress={this.onBackButtonTapped} transparent>
-               <Icon name='arrow-back' />
-            </Button>
-          </Left>
-          <Body>
-            <Title>Share & Earn</Title>
-          </Body>
-          <Right>
-          </Right>
-        </Header>  
-        </Container>
-      </StyleProvider>
+            <View style={styles.container}>
+            <Image source={AppImageContants.BLUE_PATTERN_BACKGROUND} style={styles.backgroundImage} resizeMode="repeat"/>
+    
+            <Container style={styles.content}>     
+                <Header>
+                  <Left>
+                      <Button onPress={this.onBackButtonTapped} transparent>
+                         <Icon name='arrow-back' />
+                      </Button>
+                  </Left>
+                  <Body>
+                      <Title>Share & Earn</Title>
+                  </Body>
+                  <Right>
+                  </Right>
+                </Header> 
+                <View style={styles.shareItems}>
+                   <Text style={styles.titleText}>Share Referal Code</Text>
+                   <Text style={styles.referalText}>ABCDEFGH</Text>
+                   <View style={styles.buttonsView}>
+                      <Button style={styles.buttonStyle} onPress={this.onBackButtonTapped}>
+                         <Text style={styles.titleText}> Copy </Text>
+                      </Button>
+                      <Button style={styles.buttonStyle} onPress={this.onBackButtonTapped}>
+                        <Text style={styles.titleText}> Share </Text>
+                      </Button>
+                   </View>
+                </View>
+            </Container>
+            </View>
+        </StyleProvider>
     );
   }
    
@@ -68,9 +84,47 @@ export default class ShareScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  content: {
+    top:0,
+    bottom:0,
+    width:width,
+    height:height,
     flexDirection:'column',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: "transparent",
+    position:"absolute"
+  },
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'repeat', // or 'stretch'
     justifyContent: 'center',
-  }
+    width:width
+  }, 
+  shareItems: {
+    flex:1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  }, 
+  buttonsView: {
+    flexDirection:'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding:20
+  }, 
+  buttonStyle: {
+    padding:20,
+    margin:20
+  }, 
+  titleText: {
+    color: "#FFF",
+    fontFamily: 'Montserrat-Light',
+    fontSize:15,
+    padding:20
+  },
+  referalText: {
+    color: "#FFF",
+    fontFamily: 'Montserrat-SemiBold',
+    fontSize:20
+  },
 });
 

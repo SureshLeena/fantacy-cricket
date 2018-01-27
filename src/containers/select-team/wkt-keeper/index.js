@@ -31,7 +31,8 @@ import * as RouterContants from '../../../constants/router-constants';
 import { NavigationActions } from 'react-navigation';
 
 const { width, height } = Dimensions.get('window');
-
+import PlayerPlaceHolder from '../../../components/player-placeholder';
+import PlayerListItem from '../../../components/player-list-item';
 export default class SelectedWktKeeperScreen extends Component {
   constructor(props){
         super(props);
@@ -65,7 +66,7 @@ export default class SelectedWktKeeperScreen extends Component {
            <List dataArray={this.state.data}
               renderRow={(item) =>
                 <ListItem onPress={(e) => this.listItemsClicked(item)}>
-                  <Text>{item.wktKeeperName}</Text>
+                  <PlayerListItem/>
                 </ListItem>
               }>
             </List> 
@@ -80,7 +81,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection:'column',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: AppColors.TRANSPARENT_COLOR,
     justifyContent: 'center',
   }
 });

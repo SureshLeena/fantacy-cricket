@@ -43,6 +43,8 @@ import SelectedBowler from '../select-team/bowler';
 import TeamPartitionScreen from './partition-team';
 import BatsmanListScreen from './batsman/list';
 
+
+
 export default class SelectTeamScreen extends Component {
   constructor(props){
         super(props);
@@ -133,7 +135,9 @@ export default class SelectTeamScreen extends Component {
   render() {
     return (
       <StyleProvider style={getTheme(platform)}>
-        <Container>    
+        <View style={styles.container}>
+           <Image source={AppImageContants.BLUE_PATTERN_BACKGROUND} style={styles.backgroundImage} resizeMode="repeat"/>
+          <Container style={styles.content}>     
           <Header>
             <Left>
               <Button onPress={this.onBackButtonTapped} transparent>
@@ -141,39 +145,40 @@ export default class SelectTeamScreen extends Component {
               </Button>
             </Left>
             <Body>
-              <Title>Select Team</Title>
+              <Title>SELECT TEAM</Title>
             </Body>
             <Right>
             </Right>
           </Header>  
-          <Tabs renderTabBar={()=> <ScrollableTab />}>
-            <Tab heading={ <TabHeading><Text>Batsman</Text></TabHeading>}>
+          <Tabs style={styles.tabView} renderTabBar={()=> <ScrollableTab style={styles.tabView} />}>
+            <Tab style={styles.tabView} heading={ <TabHeading style={styles.tabView} ><Text style={styles.tabHederText}>Batsman</Text></TabHeading>}>
               <SelectedBatsman data={this.state.batsman} batsmanTapped={this.batsmanItemTapped}/>
             </Tab>
-            <Tab heading={ <TabHeading><Text>Bowler</Text></TabHeading>}>
+            <Tab style={styles.tabView} heading={ <TabHeading style={styles.tabView} ><Text style={styles.tabHederText}>Bowler</Text></TabHeading>}>
               <SelectedBowler data={this.state.bowlers} bowlerTapped={this.bowlerItemTapped}/>
             </Tab>
-            <Tab heading={ <TabHeading><Text>All Rounder</Text></TabHeading>}>
+            <Tab style={styles.tabView} heading={ <TabHeading style={styles.tabView} ><Text style={styles.tabHederText}>All Rounder</Text></TabHeading>}>
               <SelectedAllRounder data={this.state.allRounders} allRounderTapped={this.allRounderItemTapped}/>
             </Tab>
-            <Tab heading={ <TabHeading><Text>Wkt Keeper</Text></TabHeading>}>
+            <Tab style={styles.tabView} heading={ <TabHeading style={styles.tabView} ><Text style={styles.tabHederText}>Wkt Keeper</Text></TabHeading>}>
               <SelectedWktKeeper  data={this.state.wktKeeper} wktKeeperTapped={this.wktKeeperItemTapped}/>
             </Tab>
         </Tabs>
         <Footer>
           <FooterTab>
             <Button onPress={this.onFormationbuttonTapped}>
-              <Text>Compose</Text>
+              <Text style={styles.tabHederText}>Compose</Text>
             </Button>
             <Button onPress={this.onSaveTapped}>
               <Image source={AppImageContants.TICK_ICON} style={styles.addIconStyle}/>
             </Button>
             <Button onPress={this.onBalanceTapped}>
-              <Text>Balance 100000</Text>
+              <Text style={styles.tabHederText}>Balance 100000</Text>
             </Button>
           </FooterTab>
           </Footer>
         </Container>
+      </View>
       </StyleProvider>
     );
   }
@@ -183,13 +188,39 @@ export default class SelectTeamScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  content: {
+    top:0,
+    bottom:0,
+    width:width,
+    height:height,
     flexDirection:'column',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: "transparent",
+    position:"absolute"
+  },
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'repeat', // or 'stretch'
     justifyContent: 'center',
+    width:width
+  },
+  termsText: {
+    color: '#fff',
+    fontFamily: 'Montserrat-Light',
+    lineHeight:17,
+    fontSize:12
   },
   addIconStyle:{
     height:60,
     width:60
-  }
+  },
+  tabView:{
+    backgroundColor: AppColors.TRANSPARENT_COLOR,
+  },
+  tabHederText: {
+    fontSize:17,
+    color: '#FFF',
+    fontFamily: 'Montserrat-SemiBold'
+  },
 });
 

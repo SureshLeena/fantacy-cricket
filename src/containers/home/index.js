@@ -89,7 +89,7 @@ export default class HomeScreen extends Component {
             </Button> 
           </Left>
           <Body style={styles.singleItemRow}>
-            <Title >Home</Title>
+            <Title >HOME</Title>
           </Body>
           <Right>
           

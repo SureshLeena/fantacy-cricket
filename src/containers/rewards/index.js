@@ -22,7 +22,9 @@ import {
     StyleProvider,
     Grid,
     Col,
-    Row
+    Row,
+    List,
+    ListItem
 } from 'native-base';
 import getTheme from '../../../native-base-theme/components';
 import platform from '../../../native-base-theme/variables/platform';
@@ -36,11 +38,25 @@ const { width, height } = Dimensions.get('window');
 export default class HomeScreen extends Component {
   constructor(props){
         super(props);
+        this.state = {
+          rewards:[]
+        }
         this.onBackButtonTapped = this.onBackButtonTapped.bind(this);
   }
   componentDidMount(){
-  
-    
+    this.getRewardsList();  
+  }
+  getRewardsList(){
+    var rewards = [];
+    for(var i=0; i<10; i++){
+        var data = {
+            reward:"Reward Details "+(i+1),
+            rewardId:i
+        }
+        rewards.push(data);
+    }
+
+    this.setState({rewards:rewards})
   }
   onBackButtonTapped(){
     this.props.navigation.goBack()
@@ -49,21 +65,32 @@ export default class HomeScreen extends Component {
   render() {
     return (
       <StyleProvider style={getTheme(platform)}>
-        <Container>
-        <Header>
-          <Left>
-            <Button onPress={this.onBackButtonTapped} transparent>
-               <Icon name='arrow-back' />
-            </Button>
-          </Left>
-          <Body>
-            <Title>Rewards</Title>
-          </Body>
-          <Right>
-          </Right>
-        </Header>
-        </Container>
-      </StyleProvider>
+            <View style={styles.container}>
+            <Image source={AppImageContants.BLUE_PATTERN_BACKGROUND} style={styles.backgroundImage} resizeMode="repeat"/>
+    
+            <Container style={styles.content}>     
+                <Header>
+                <Left>
+                    <Button onPress={this.onBackButtonTapped} transparent>
+                    <Icon name='arrow-back' />
+                    </Button>
+                </Left>
+                <Body>
+                    <Title>Rewards</Title>
+                </Body>
+                <Right>
+                </Right>
+                </Header> 
+                <List dataArray={this.state.rewards}
+                    renderRow={(item) =>
+                        <ListItem onPress={(e) => this.listItemsClicked(item)}>
+                          <Text style={styles.itemText}>{item.reward}</Text>
+                        </ListItem>
+                    }>
+                    </List> 
+            </Container>
+            </View>
+        </StyleProvider>
     );
   }
    
@@ -72,21 +99,26 @@ export default class HomeScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  content: {
+    top:0,
+    bottom:0,
+    width:width,
+    height:height,
     flexDirection:'column',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: "transparent",
+    position:"absolute"
+  },
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'repeat', // or 'stretch'
     justifyContent: 'center',
-  },
-  singleItemRow: {
-      borderBottomWidth: 1,
-      borderBottomColor: AppColors.WHITE_COLOR,
-      alignItems:'center',
-      justifyContent: 'center'
-  },
-  doubleItemRow: {
-    borderBottomWidth: 1,
-    borderBottomColor: AppColors.WHITE_COLOR,
-    alignItems:'center',
-    justifyContent: 'center'
-  }
+    width:width
+  }, 
+  itemText: {
+    color: "#000",
+    fontFamily: 'Montserrat-Light',
+    fontSize:12
+ },
 });
 

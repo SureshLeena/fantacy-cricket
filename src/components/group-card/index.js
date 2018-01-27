@@ -18,22 +18,57 @@ import * as RouterContants from '../../constants/router-constants';
 import { NavigationActions } from 'react-navigation';
 
 const { width, height } = Dimensions.get('window');
+import { ButtonGroup } from 'react-native-elements';
 
 export default class GroupCard extends Component {
   constructor(props){
-        super(props);
-      
+    super(props);
+    this.state = {
+        data:props.item,
+        index:0
+    }
+    this.tappedGridItem = this.tappedGridItem.bind(this);
   }
   componentDidMount(){
     
   }
+  componentWillReceiveProps(nextProps){
+      if(nextProps != this.props){
+          this.setState({data:nextProps.item});
+      }
+  }
+  updateIndex = (index) => {
+    this.setState({index})
+  }
+  tappedGridItem(){
+    if(this.props.tappedGridItem){
+        this.props.tappedGridItem(this.state.data);
+    }
+  }
   render() {
     return (
       <StyleProvider style={getTheme(platform)}>
-        <Container style={styles.container}>
-           <Text style={styles.groupNameText}>Group 1</Text>
-           <Text style={styles.groupMembersText}>1000 members</Text>
-        </Container>
+        {/* <TouchableOpacity onPress={(e)=>this.tappedGridItem("item")} activeOpacity={0.8} style={styles.buttonStyle}> */}
+            <Container style={styles.container}>
+                <TouchableOpacity style={styles.rowButton} onPress={(e)=>this.tappedGridItem()} activeOpacity={0.8}>
+                    <View style={styles.textGroup}>
+                        <Text style={styles.groupNameText}>{this.state.data.groupName}</Text>
+                        <Text style={styles.groupMembersText}>{this.state.data.groupMembersCount} members</Text>
+                    </View>
+                    <View style={styles.buttonGroup}>
+                        <ButtonGroup
+                            selectedBackgroundColor="pink"
+                            onPress={this.updateIndex}
+                            selectedIndex={this.state.index}
+                            buttons={['Accept', 'Reject']}
+                            // selectedTextStyle={{color:"white"}}
+                            textStyle={{color:"white"}}
+                            containerStyle={{height: 30, width:200, backgroundColor:"transparent"}} />
+                    </View>
+                </TouchableOpacity>  
+            </Container>
+       
+       
       </StyleProvider>
     );
   }
@@ -46,7 +81,25 @@ const styles = StyleSheet.create({
     flexDirection:'column',
     backgroundColor: "transparent",
     justifyContent: 'center',
-    alignItems:'center'
+    alignItems:'center',
+
+  },
+  rowButton:{
+    backgroundColor: "transparent",
+    justifyContent: 'center',
+    alignItems:'center',
+    position:'absolute',
+    top:0,
+    width:width,
+    bottom:0
+  },
+  textGroup: {
+    // flex: 1,
+    flexDirection:'column',
+    backgroundColor: "transparent",
+    justifyContent: 'center',
+    alignItems:'center',
+    padding:20
   },
   groupNameText: {
     color: '#fff',
@@ -57,6 +110,14 @@ const styles = StyleSheet.create({
     color: '#ddd',
     fontFamily: 'Montserrat-Light',
     fontSize:12
+  },
+  buttonGroup: {
+    // flex: 1,
+    flexDirection:'row',
+    backgroundColor: "transparent",
+    justifyContent: 'center',
+    alignItems:'center',
+    padding:20
   },
 });
 

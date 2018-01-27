@@ -134,7 +134,7 @@ export default class MenuScreen extends Component {
       data={this.state.items}
       span={2}
       border={1}
-      borderColor="#ccc"
+      borderColor={AppColors.LINE_COLOR}
       spacing={0}
       square
       // flat

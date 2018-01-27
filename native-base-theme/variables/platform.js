@@ -104,7 +104,7 @@ export default {
   brandLight: "#f4f4f4",
 
   // Font
-  fontFamily: platform === "ios" ? "System" : "Roboto",
+  fontFamily: platform === "ios" ? "Montserrat-SemiBold" : "Montserrat-SemiBold",
   fontSizeBase: 15,
   get fontSizeH1() {
     return this.fontSizeBase * 1.8;
@@ -118,7 +118,7 @@ export default {
 
   // Footer
   footerHeight: isIphoneX ? 89 : 55,
-  footerDefaultBg: platform === "ios" ? "#081c2e" : "#081c2e",
+  footerDefaultBg: platform === "ios" ? "#1c75bc" : "#1c75bc",
   footerPaddingBottom: isIphoneX ? 34 : 0,
 
   // FooterTab
@@ -130,7 +130,7 @@ export default {
   tabActiveBgColor: "#cde1f9",
 
   // Header
-  toolbarBtnColor: "#fff",
+  toolbarBtnColor: "#fed41f",
   toolbarDefaultBg: platform === "ios" ? "#081c2e" : "#081c2e",
   toolbarHeight: platform === "ios" ? (isIphoneX ? 88 : 64) : 56,
   toolbarSearchIconSize: platform === "ios" ? 20 : 23,
@@ -208,14 +208,14 @@ export default {
   inverseSpinnerColor: "#1A191B",
 
   // Tab
-  tabDefaultBg: platform === "ios" ? "#F8F8F8" : "#3F51B5",
-  topTabBarTextColor: platform === "ios" ? "#6b6b6b" : "#b3c7f9",
-  topTabBarActiveTextColor: platform === "ios" ? "#007aff" : "#fff",
-  topTabBarBorderColor: platform === "ios" ? "#a7a6ab" : "#fff",
-  topTabBarActiveBorderColor: platform === "ios" ? "#007aff" : "#fff",
+  tabDefaultBg: platform === "ios" ? "transparent" : "transparent",
+  topTabBarTextColor: platform === "ios" ? "#FFF" : "#FFF",
+  topTabBarActiveTextColor: platform === "ios" ? "#FFF" : "#FFF",
+  topTabBarBorderColor: platform === "ios" ? "#FFF" : "#fff",
+  topTabBarActiveBorderColor: platform === "ios" ? "#FFF" : "#fff",
 
   // Tabs
-  tabBgColor: "#F8F8F8",
+  tabBgColor: "transparent",
   tabFontSize: 15,
 
   // Text
@@ -228,10 +228,10 @@ export default {
 
   // Title
   titleFontfamily: platform === "ios" ? "Montserrat-SemiBold" : "Montserrat-SemiBold",
-  titleFontSize: platform === "ios" ? 17 : 19,
+  titleFontSize: platform === "ios" ? 15 : 17,
   subTitleFontSize: platform === "ios" ? 12 : 14,
-  subtitleColor: platform === "ios" ? "#FFF" : "#FFF",
-  titleFontColor: platform === "ios" ? "#FFF" : "#FFF",
+  subtitleColor: platform === "ios" ? "#fed41f" : "#fed41f",
+  titleFontColor: platform === "ios" ? "#fed41f" : "#fed41f",
 
   // Other
   borderRadiusBase: platform === "ios" ? 5 : 2,

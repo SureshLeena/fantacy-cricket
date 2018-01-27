@@ -80,6 +80,8 @@ import TermsScreen from './src/containers/terms';
 import SelectTeamScreen from './src/containers/select-team';
 import TeamPartitionScreen from './src/containers/select-team/partition-team'
 import BatsmanListScreen from './src/containers/select-team/batsman/list';
+import GroupMembersListScreen from './src/containers/groups/members';
+
 
 const AppNavigator = StackNavigator(
 	{
@@ -99,10 +101,11 @@ const AppNavigator = StackNavigator(
 		TermsScreen: { screen: TermsScreen },
 		SelectTeamScreen: {screen :SelectTeamScreen},
 		BatsmanListScreen: {screen :BatsmanListScreen},
-		TeamPartitionScreen: {screen:TeamPartitionScreen}
+		TeamPartitionScreen: {screen:TeamPartitionScreen},
+		GroupMembersListScreen:{screen:GroupMembersListScreen}
 	},
 	{
-		initialRouteName: "SplashScreen",
+		initialRouteName: "MenuScreen",
 		headerMode: "none",
 	}
 );

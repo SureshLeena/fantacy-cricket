@@ -9,3 +9,4 @@ export const TICK_ICON = require('../../assets/icons/tick-icon.png');
 //Backgrounds
 export const CRICKET_BACKGROUND = require('../../assets/icons/cricket-bg.jpg');
 export const BLUE_PATTERN_BACKGROUND = require('../../assets/icons/bgpattern.jpg');
+export const PLAYER_PLACEHOLDER_BACKGROUND = require('../../assets/icons/bgpattern.jpg');

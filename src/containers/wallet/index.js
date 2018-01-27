@@ -19,7 +19,9 @@ import {
     Left, 
     Right, 
     Body,
-    StyleProvider
+    StyleProvider,
+    List,
+    ListItem
 } from 'native-base';
 import getTheme from '../../../native-base-theme/components';
 import platform from '../../../native-base-theme/variables/platform';
@@ -33,9 +35,28 @@ const { width, height } = Dimensions.get('window');
 export default class WalletsScreen extends Component {
   constructor(props){
         super(props);
+        this.state = {
+          wallets:[]
+        }
         this.onBackButtonTapped = this.onBackButtonTapped.bind(this);
+        this.listItemsClicked = this.listItemsClicked.bind(this);
   }
   componentDidMount(){
+    this.getWalletList();
+  }
+  getWalletList(){
+    var members = [];
+    for(var i=0; i<10; i++){
+        var data = {
+            wallet:"Wallet Details "+(i+1),
+            walletId:i
+        }
+        members.push(data);
+    }
+
+    this.setState({wallets:members})
+  }
+  listItemsClicked(item){
 
   }
   onBackButtonTapped(){
@@ -44,21 +65,32 @@ export default class WalletsScreen extends Component {
   render() {
     return (
       <StyleProvider style={getTheme(platform)}>
-        <Container>    
-        <Header>
-          <Left>
-            <Button onPress={this.onBackButtonTapped} transparent>
-               <Icon name='arrow-back' />
-            </Button>
-          </Left>
-          <Body>
-            <Title>Wallets</Title>
-          </Body>
-          <Right>
-          </Right>
-        </Header>  
-        </Container>
-      </StyleProvider>
+            <View style={styles.container}>
+            <Image source={AppImageContants.BLUE_PATTERN_BACKGROUND} style={styles.backgroundImage} resizeMode="repeat"/>
+    
+            <Container style={styles.content}>     
+                <Header>
+                <Left>
+                    <Button onPress={this.onBackButtonTapped} transparent>
+                    <Icon name='arrow-back' />
+                    </Button>
+                </Left>
+                <Body>
+                    <Title>Wallet</Title>
+                </Body>
+                <Right>
+                </Right>
+                </Header> 
+                <List dataArray={this.state.wallets}
+                    renderRow={(item) =>
+                        <ListItem onPress={(e) => this.listItemsClicked(item)}>
+                          <Text style={styles.itemText}>{item.wallet}</Text>
+                        </ListItem>
+                    }>
+                    </List> 
+            </Container>
+            </View>
+        </StyleProvider>
     );
   }
    
@@ -67,9 +99,26 @@ export default class WalletsScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  content: {
+    top:0,
+    bottom:0,
+    width:width,
+    height:height,
     flexDirection:'column',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: "transparent",
+    position:"absolute"
+  },
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'repeat', // or 'stretch'
     justifyContent: 'center',
-  }
+    width:width
+  }, 
+  itemText: {
+    color: "#000",
+    fontFamily: 'Montserrat-Light',
+    fontSize:12
+ },
 });
 

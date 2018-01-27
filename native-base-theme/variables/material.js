@@ -137,7 +137,7 @@ export default {
   toolbarInputColor: "#081c2e",
   searchBarHeight: platform === "ios" ? 30 : 40,
   searchBarInputHeight: platform === "ios" ? 30 : 50,
-  toolbarBtnTextColor: "#fff",
+  toolbarBtnTextColor: "#fed41f",
   toolbarDefaultBorder: "#081c2e",
   iosStatusbar: "light-content",
   get statusBarColor() {
@@ -230,8 +230,8 @@ export default {
   titleFontfamily: platform === "ios" ? "Roboto" : "Roboto_medium",
   titleFontSize: 19,
   subTitleFontSize: 14,
-  subtitleColor: "#FFF",
-  titleFontColor: "#FFF",
+  subtitleColor: "#fed41f",
+  titleFontColor: "#fed41f",
 
   // Other
   borderRadiusBase: 2,

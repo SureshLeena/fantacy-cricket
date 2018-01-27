@@ -41,6 +41,7 @@ export default class GroupsScreen extends Component {
         }
         this.onBackButtonTapped = this.onBackButtonTapped.bind(this);
         this.getAllGroups = this.getAllGroups.bind(this);
+        this.tappedGridItem = this.tappedGridItem.bind(this);
   }
   componentDidMount(){
     this.getAllGroups();
@@ -50,7 +51,8 @@ export default class GroupsScreen extends Component {
     for(var i=0; i<10; i++){
         var group = {
           groupName:"Group "+(i+1),
-          groupId:i
+          groupId:i,
+          groupMembersCount:100
         }
         mygroups.push(group);
     }
@@ -60,6 +62,9 @@ export default class GroupsScreen extends Component {
   }
   onBackButtonTapped(){
     this.props.navigation.goBack()
+  }
+  tappedGridItem(item){
+    this.props.navigation.navigate(RouterContants.GROUP_MEMBERS_LIST_SCREEN_ROUTER_NAME)
   }
   render() {
     return (
@@ -90,7 +95,7 @@ export default class GroupsScreen extends Component {
             flat
             key={"grid"}
             render={item => 
-              <GroupCard item={item}/>
+              <GroupCard item={item} tappedGridItem={this.tappedGridItem}/>
             }
           />
         </Container>
