@@ -102,7 +102,7 @@ const AppNavigator = StackNavigator(
 		TeamPartitionScreen: {screen:TeamPartitionScreen}
 	},
 	{
-		initialRouteName: "GroupsScreen",
+		initialRouteName: "SplashScreen",
 		headerMode: "none",
 	}
 );
