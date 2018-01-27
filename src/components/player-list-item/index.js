@@ -64,9 +64,11 @@ const styles = StyleSheet.create({
     height:50
   },
   playerDetailsGroup: {
+    flex:1,
     flexDirection:'row'
   },
   userImage: {
+    marginLeft:10,
     width:44,
     height:44,
     borderRadius:22,

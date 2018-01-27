@@ -136,7 +136,7 @@ export default class SelectTeamScreen extends Component {
     return (
       <StyleProvider style={getTheme(platform)}>
         <View style={styles.container}>
-           <Image source={AppImageContants.BLUE_PATTERN_BACKGROUND}/>
+           <Image source={AppImageContants.BLUE_PATTERN_BACKGROUND} style={styles.backgroundImage}/>
           <Container style={styles.content}>     
           <Header>
             <Left>
@@ -164,20 +164,21 @@ export default class SelectTeamScreen extends Component {
               <SelectedWktKeeper  data={this.state.wktKeeper} wktKeeperTapped={this.wktKeeperItemTapped}/>
             </Tab>
         </Tabs>
+        
+        </Container>
         <Footer>
           <FooterTab>
             <Button onPress={this.onFormationbuttonTapped}>
-              <Text style={styles.tabHederText}>Compose</Text>
+              <Text style={styles.footerText}>Compose</Text>
             </Button>
             <Button onPress={this.onSaveTapped}>
               <Image source={AppImageContants.TICK_ICON} style={styles.addIconStyle}/>
             </Button>
             <Button onPress={this.onBalanceTapped}>
-              <Text style={styles.tabHederText}>Balance 100000</Text>
+              <Text style={styles.footerText}>Balance 100000</Text>
             </Button>
           </FooterTab>
           </Footer>
-        </Container>
       </View>
       </StyleProvider>
     );
@@ -211,14 +212,19 @@ const styles = StyleSheet.create({
     fontSize:12
   },
   addIconStyle:{
-    height:60,
-    width:60
+    height:50,
+    width:50
   },
   tabView:{
     backgroundColor: AppColors.TRANSPARENT_COLOR,
   },
   tabHederText: {
-    fontSize:17,
+    fontSize:15,
+    color: '#FFF',
+    fontFamily: 'Montserrat-SemiBold'
+  },
+  footerText: {
+    fontSize:13,
     color: '#FFF',
     fontFamily: 'Montserrat-SemiBold'
   },

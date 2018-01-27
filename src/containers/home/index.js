@@ -107,13 +107,13 @@ export default class HomeScreen extends Component {
                     </Button> 
                 </Left>
                 <Body style={styles.singleItemRow}>  
-                    <TouchableOpacity onPress={this.handleMenuPress} style={{ flexDirection:'row',alignSelf:'center',backgroundColor:'transparent',paddingTop:15}}>
+                    <TouchableOpacity onPress={this.handleMenuPress} style={{ flexDirection:'row',alignSelf:'center',backgroundColor:'transparent',paddingTop:10}}>
                         <Title >SERIES</Title>
                         <Icon
                         name="md-arrow-dropdown"
                         size={8}
                         ref="menu"
-                        style={{marginLeft:10, marginTop:-5}}
+                        style={{marginLeft:10}}
                         />
                     </TouchableOpacity>
                 </Body>
@@ -146,22 +146,22 @@ export default class HomeScreen extends Component {
                     {this.loadGroupsList()}    
                 </View>
                 </Content>
-                <Footer>
+               
+            </Container>
+            <Footer>
                 <FooterTab>
                     <Button onPress={this.onSchedulebuttonTapped}>
                     <Icon name="ios-calendar-outline" />
                     </Button>
                     <Button onPress={this.onSelectPlayerTapped}>
-                    <Image source={AppImageContants.ADD_ICON} style={styles.addIconStyle} tintColor={"white"}/>
+                    <Image source={AppImageContants.ADD_ICON} style={styles.addIconStyle} />
                     </Button>
                     <Button onPress={this.onLeaderBoardTapped}>
                     <Icon name="ios-list-box-outline" />
                     </Button>
                 </FooterTab>
                 </Footer>
-            </Container>
-
-        {/* <ModalWrapper
+        <ModalWrapper
             containerStyle={{flexDirection: 'row', alignItems: 'flex-end'}}
             style={{ flex: 1, width: width, height: 180}}
             onRequestClose={this.onClosed}
@@ -171,7 +171,7 @@ export default class HomeScreen extends Component {
                     <Title >CLOSE</Title>
                 </TouchableOpacity>
             </View>
-        </ModalWrapper> */}
+        </ModalWrapper>
         </View>
       </StyleProvider>
     );
@@ -208,7 +208,6 @@ const styles = StyleSheet.create({
     width:width
   },
   singleItemRow: {
-     
       borderBottomWidth: 1,
       borderBottomColor: AppColors.LINE_COLOR,
       alignItems:'center',
@@ -263,8 +262,8 @@ singleItemColLeft: {
     fontFamily: 'Montserrat-Light'
   },
   addIconStyle:{
-    height:60,
-    width:60
+    height:50,
+    width:50
   }
 });
 

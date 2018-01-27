@@ -20,7 +20,9 @@ import {
     Left, 
     Right, 
     Body,
-    StyleProvider
+    StyleProvider,
+    Footer,
+    FooterTab
 } from 'native-base';
 import getTheme from '../../../native-base-theme/components';
 import platform from '../../../native-base-theme/variables/platform';
@@ -74,6 +76,19 @@ export default class TermsScreen extends Component {
               </Text>
             </ScrollView>
           </Container>
+          {/* <Footer>
+                <FooterTab>
+                    <Button onPress={this.onSchedulebuttonTapped}>
+                    <Icon name="ios-calendar-outline" />
+                    </Button>
+                    <Button onPress={this.onSelectPlayerTapped}>
+                    <Image source={AppImageContants.ADD_ICON} style={styles.addIconStyle} />
+                    </Button>
+                    <Button onPress={this.onLeaderBoardTapped}>
+                    <Icon name="ios-list-box-outline" />
+                    </Button>
+                </FooterTab>
+                </Footer> */}
         </View>
       </StyleProvider>
     );
@@ -106,5 +121,9 @@ const styles = StyleSheet.create({
     lineHeight:17,
     fontSize:12
   },
+  addIconStyle:{
+    height:50,
+    width:50
+  }
 });
 

@@ -158,7 +158,7 @@ export default class MenuScreen extends Component {
       <StyleProvider style={getTheme(platform)}>
      
       <View style={styles.container}>
-        <Image source={AppImageContants.BLUE_PATTERN_BACKGROUND}  />
+        <Image source={AppImageContants.BLUE_PATTERN_BACKGROUND}  style={styles.backgroundImage}/>
   
         <Container style={styles.content}>    
           <Header trasparent>
