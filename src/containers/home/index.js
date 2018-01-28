@@ -74,10 +74,10 @@ export default class HomeScreen extends Component {
       for(var i=0;i<10;i++){
         groups.push(<View  style={styles.singleItemRowWithTwoElements} key={i}>
             <View  style={styles.singleItemColLeft}>
-                  <Text style={styles.highlightedTextStyle}>Group</Text> 
+                  <Text style={styles.headerTextLight}>Group</Text> 
                   <Text style={styles.suffixTextStyle}>10 members</Text> 
             </View> 
-            <Text style={styles.highlightedTextStyle}>8</Text> 
+            <Text style={styles.headerTextLight}>8</Text> 
           </View> );
       }
       return groups;
@@ -106,15 +106,9 @@ export default class HomeScreen extends Component {
                     <Icon name='md-apps' />
                     </Button> 
                 </Left>
-                <Body style={styles.singleItemRow}>  
-                    <TouchableOpacity onPress={this.handleMenuPress} style={{ flexDirection:'row',alignSelf:'center',backgroundColor:'transparent',paddingTop:10}}>
-                        <Title >SERIES</Title>
-                        <Icon
-                        name="md-arrow-dropdown"
-                        size={8}
-                        ref="menu"
-                        style={{marginLeft:10}}
-                        />
+                <Body >  
+                    <TouchableOpacity onPress={this.handleMenuPress} style={{ flexDirection:'row',alignSelf:'center',backgroundColor:'transparent'}}>
+                        <Title>HOME</Title>
                     </TouchableOpacity>
                 </Body>
                 <Right>
@@ -124,7 +118,14 @@ export default class HomeScreen extends Component {
                 <Content>
                 <View>
                     <View  style={styles.singleItemRow}> 
-                        <Text style={styles.highlightedTextStyle}>January 26</Text> 
+                        <Text style={styles.headerTextLight}>Indian Premier League</Text> 
+                        <Icon
+                        name="ios-arrow-dropdown-outline"
+                        size={100}
+                        ref="menu"
+                        color="white"
+                        style={{marginLeft:10, marginTop:2, color:"white"}}
+                        />
                     </View>
                     <View  style={styles.doubleItemRow}>
                         <View style={styles.doubleItemColLeft}>
@@ -132,16 +133,16 @@ export default class HomeScreen extends Component {
                             <Text style={styles.suffixTextStyle}>Balance</Text> 
                         </View>
                         <View  style={styles.doubleItemCol}>
-                            <Text style={styles.highlightedTextStyle}>Rs.100000</Text> 
+                            <Text style={styles.highlightedTextStyle}>100000</Text> 
                             <Text style={styles.suffixTextStyle}>INR Balance</Text> 
                         </View>
                     </View>
                     <View  style={styles.singleItemRowWithTwoElements}>
                         <View  style={styles.singleItemColLeft}>
-                            <Text style={styles.highlightedTextStyle}>Overall Rank</Text> 
+                            <Text style={styles.headerTextLight}>Series Rank</Text> 
                             <Text style={styles.suffixTextStyle}>100000 members</Text> 
                         </View> 
-                        <Text style={styles.highlightedTextStyle}>10002</Text> 
+                        <Text style={styles.headerTextLight}>10002</Text> 
                     </View> 
                     {this.loadGroupsList()}    
                 </View>
@@ -151,13 +152,13 @@ export default class HomeScreen extends Component {
             <Footer>
                 <FooterTab>
                     <Button onPress={this.onSchedulebuttonTapped}>
-                    <Icon name="ios-calendar-outline" />
+                    <Icon name="ios-trophy-outline" />
                     </Button>
                     <Button onPress={this.onSelectPlayerTapped}>
                     <Image source={AppImageContants.ADD_ICON} style={styles.addIconStyle} />
                     </Button>
                     <Button onPress={this.onLeaderBoardTapped}>
-                    <Icon name="ios-list-box-outline" />
+                    <Icon name="ios-trending-up-outline" />
                     </Button>
                 </FooterTab>
                 </Footer>
@@ -208,6 +209,7 @@ const styles = StyleSheet.create({
     width:width
   },
   singleItemRow: {
+      flexDirection:"row",
       borderBottomWidth: 1,
       borderBottomColor: AppColors.LINE_COLOR,
       alignItems:'center',
@@ -228,7 +230,7 @@ const styles = StyleSheet.create({
     borderBottomColor: AppColors.LINE_COLOR,
     alignItems:'center',
     justifyContent: 'space-between',
-    height:60,
+    height:90,
     padding:10
 },
 singleItemColLeft: {
@@ -250,6 +252,11 @@ singleItemColLeft: {
     width:width/2,
     height:100,
     // backgroundColor:"red"
+  },
+  headerTextLight: {
+    fontSize:20,
+    color: '#FFF',
+    fontFamily: 'Montserrat-Light'
   },
   highlightedTextStyle: {
     fontSize:20,

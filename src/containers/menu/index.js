@@ -39,7 +39,16 @@ export default class MenuScreen extends Component {
   constructor(props){
         super(props);
         this.state = {
-            items:["Home", "Schedule", "Groups", "Leaderboard", "Wallet", "Rewards", "Settings", "Share & Earn", "Game Rules", "Terms"]
+            items:[
+              {name:"Teams", icon:"ios-game-controller-b-outline"}, 
+              {name:"Groups", icon:"ios-contacts-outline"},
+              {name:"Contests", icon:"ios-trophy-outline"},
+              {name:"Leaderboard", icon:"ios-trending-up-outline"},
+              {name:"Wallets", icon:"ios-cash-outline"},
+              {name:"Share & Earn",icon:"ios-chatbubbles-outline"}, 
+              {name:"Settings", icon:"ios-settings-outline"},
+              {name:"News & Shedule", icon:"ios-calendar-outline"}
+            ]
         }
         this.onCloseMenuButtonTapped = this.onCloseMenuButtonTapped.bind(this);
         this.loadGridItems = this.loadGridItems.bind(this);
@@ -143,7 +152,8 @@ export default class MenuScreen extends Component {
       render={item => 
         <View style={[styles.itemContainer]} key={item}>
         <TouchableOpacity onPress={(e)=>this.tappedGridItem(item)} activeOpacity={0.8} style={styles.buttonStyle} ref={item}>
-              <Text style={styles.itemName} key={item}>{item}</Text>
+              <Icon name={item.icon}  style={{color:"white", padding:5}}/>
+              <Text style={styles.itemName} key={item}>{item.name}</Text>
          </TouchableOpacity>  
       </View>}
     />);
@@ -159,16 +169,16 @@ export default class MenuScreen extends Component {
      
       <View style={styles.container}>
         <Image source={AppImageContants.BLUE_PATTERN_BACKGROUND}  style={styles.backgroundImage}/>
-  
+        <View style={styles.alphaOverlay}></View>
         <Container style={styles.content}>    
           <Header trasparent>
             <Left>
               <Button onPress={this.onCloseMenuButtonTapped} transparent>
-                <Icon name='arrow-back' />
+                <Icon name='arrow-back'/>
               </Button>
             </Left>
             <Body>
-              <Title>Menu</Title>
+              <Title>MENU</Title>
             </Body>
             <Right>
             </Right>
@@ -205,6 +215,15 @@ const styles = StyleSheet.create({
     resizeMode: 'stretch', // or 'stretch'
     justifyContent: 'center',
     width:width
+  },
+  alphaOverlay: {
+    top:0,
+    bottom:0,
+    width:width,
+    height:height,
+    flexDirection:'column',
+    backgroundColor: "rgba(0,0,0,0.5)",
+    position:"absolute"
   },
   gridItem: {
       borderBottomWidth: 1,
@@ -249,7 +268,7 @@ const styles = StyleSheet.create({
     // fontSize: 16,
     color: '#fff',
     // fontWeight: '600',
-    fontFamily: 'Montserrat-SemiBold',
+    fontFamily: 'Montserrat-Light',
     fontSize:17
   },
 
