@@ -32,7 +32,7 @@ import * as AppColors from '../../themes/color-codes';
 import * as AppImageContants from '../../constants/app-image-constants';
 import * as RouterContants from '../../constants/router-constants';
 import { NavigationActions } from 'react-navigation';
-import { APIGET, APIPOST } from '../../helpers/api-implement';
+// import { APIGET, APIPOST } from '../../helpers/api-implement';
 
 const { width, height } = Dimensions.get('window');
 
