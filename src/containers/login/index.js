@@ -49,7 +49,7 @@ export default class LoginScreen extends Component {
   }
   componentDidMount(){
       this.setupGoogleSignin();
-      this.loginViaGoogle("");
+      // this.loginViaGoogle("");
   }
   async setupGoogleSignin() {
     try {
@@ -92,11 +92,11 @@ export default class LoginScreen extends Component {
   loginViaGoogle(user){
       var self = this;
       var emailId = user.email;
-      emailId = "suresh.apple.dev@gmail.com";//Testing
-      var url = ApiConstants.GET_USER_PROFILE_API + emailId;
-      ApiClient.getServerCall(url, function(error, response){   
+      // emailId = "suresh.apple.dev@gmail.com";//Testing
+      var url = ApiConstants.HTTP_BASE_URL + ApiConstants.GET_USER_PROFILE_API + emailId;
+      ApiClient.getServerCall(url, function(error, response){
+        alert("response : "+JSON.stringify(response));   
         if(response.response.code == "401"){
-          // alert(JSON.stringify(response));
           //Not Registered
           self.goToSignUpPage();
         }else if(response.response.code == "200"){
@@ -107,7 +107,7 @@ export default class LoginScreen extends Component {
      
   }
   goToSignUpPage(){
-    this.props.navigation.navigate(RouterContants.REGISTER_SCREEN_ROUTER_NAME)
+    this.props.navigation.navigate(RouterContants.REGISTER_SCREEN_ROUTER_NAME,{type:'google',user:this.state.googleUser})
   }
   goToHomePage(){
     this.props.navigation.navigate(RouterContants.HOME_SCREEN_ROUTER_NAME)

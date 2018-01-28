@@ -1,14 +1,14 @@
 
-export const HTTP_BASE_URL = ' https://devcricketdash.appspot.com/_ah/';//Testing
+export const HTTP_BASE_URL = 'https://devcricketdash.appspot.com/_ah/api/profileapi/';//Testing
 
 
-export const GET_USER_PROFILE_API = 'https://devcricketdash.appspot.com/_ah/api/profileapi/v1/userProfile/getUserProfile?gmailId=';
+export const GET_USER_PROFILE_API = 'v1/userProfile/getUserProfile?gmailId=';
 //GET, 
 //PARAMETERS : gmailId
 //HEADER: 
 //Example:
 
-export const SIGNUP_API = 'api/profileapi/v1/userProfile/signUp';
+export const SIGNUP_API = 'v1/userProfile/signUp';
 //GET, 
 //PARAMETERS : 
 // {

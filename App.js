@@ -105,7 +105,7 @@ const AppNavigator = StackNavigator(
 		GroupMembersListScreen:{screen:GroupMembersListScreen}
 	},
 	{
-		initialRouteName: "SplashScreen",
+		initialRouteName: "HomeScreen",
 		headerMode: "none",
 	}
 );

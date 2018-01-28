@@ -22,14 +22,27 @@ const { width, height } = Dimensions.get('window');
 export default class RegisterForm extends Component {
   constructor(props){
         super(props);
+        this.state = {
+          user:props.user,
+          name:"",
+          email:"",
+          referalCode:"",
+          phoneNumber:""
+        }
         this.registerBtnTapped = this.registerBtnTapped.bind(this);
   }
   componentDidMount(){
     
   }
+  componentWillReceiveProps(nextProps){
+    if(nextProps != this.props){
+      // alert("nextProps.user : "+JSON.stringify(nextProps.user));
+      this.setState({user:nextProps.user});
+    }
+  }
   registerBtnTapped(){
       if(this.props.registerBtnTapped){
-        this.props.registerBtnTapped();
+        this.props.registerBtnTapped(this.state);
       }   
   }
   render() {
@@ -37,26 +50,18 @@ export default class RegisterForm extends Component {
       <StyleProvider style={getTheme(platform)}>
         <Container style={styles.container}>
             <Form>
-                <Item style = {styles.FormItemStyle} fixedLabel>
-                    <Label>Username</Label>
-                    <Input style={styles.TextInputStyle}/>
+                <Item style = {styles.FormItemStyle} inlineLabel>
+                    <Input style={styles.TextInputStyle} placeholder="Name" defaultValue={this.state.user.name} onChangeText={(text) => this.setState({name:text})}/>
                 </Item>
-                <Item style = {styles.FormItemStyle}fixedLabel>
-                    <Label>Phone Number</Label>
-                    <Input style={styles.TextInputStyle}/>
+                <Item style = {styles.FormItemStyle} inlineLabel>
+                    <Input style={styles.TextInputStyle} placeholder="Phone Number" defaultValue={this.state.user.phoneNumber} onChangeText={(text) => this.setState({phoneNumber:text})}/>
                 </Item>  
-                <Item style = {styles.FormItemStyle}fixedLabel>
-                    <Label>Email Id</Label>
-                    <Input style={styles.TextInputStyle}/>
+                <Item style = {styles.FormItemStyle} inlineLabel>
+                    <Input style={styles.TextInputStyle} placeholder="Email" defaultValue={this.state.user.email} onChangeText={(text) => this.setState({email:text})}/>
                 </Item>  
-                <Item style = {styles.FormItemStyle}fixedLabel>
-                    <Label>Password</Label>
-                    <Input style={styles.TextInputStyle}/>
-                </Item>  
-                <Item style = {styles.FormItemStyle}fixedLabel>
-                    <Label>Confirm Password</Label>
-                    <Input style={styles.TextInputStyle}/>
-                </Item>        
+                <Item style = {styles.FormItemStyle} inlineLabel>
+                    <Input style={styles.TextInputStyle} placeholder="Referal Code" defaultValue={this.state.user.referalCode} onChangeText={(text) => this.setState({referalCode:text})}/>
+                </Item>     
             </Form>
             <View style={styles.ButtonStyle}>
                 <Button onPress={this.registerBtnTapped} block>
@@ -74,7 +79,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection:'column',
-    backgroundColor: AppColors.APP_THEME_COLOR,
+    backgroundColor: AppColors.TRANSPARENT_COLOR,
   },
   FormItemStyle:{
     marginBottom:10,
